@@ -1,21 +1,73 @@
-html, body (
-
-)
-
-
-body {
-
+/* set the drumset at the bottom of the page----TESTING*/
+#drumset {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
 
-
-h1, h2 {
-
+/*make gray drums rounded with a darker border */
+.drum {
+    width: 20vmin;
+    height: 20vmin;
+    background: #ccc;
+    box-sizing: border-box;
+    border: 1vmin solid #333;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5vmin;
 }
 
-canvas (
+#drum-0 {
+    box-shadow: inset 0 0 0 2vmin blue;
+    top: -5vmin;
+}
 
-)
+#drum-1 {
+    box-shadow: inset 0 0 0 2vmin green;
+}
 
-#container {
-    
+#drum-2 {
+    box-shadow: inset 0 0 0 2vmin red;
+}
+
+#drum-3 {
+    box-shadow: inset 0 0 0 2vmin yellow;
+    top: -5vmin;
+}
+
+/* position the text and add a border to highlight it */
+#points, #streak {
+    position: absolute;
+    top: 5vmin;
+    right: 5vmin;
+    font-size: 18vmin;
+    color: #fff;
+    text-shadow: 0 -1px #000, 1px -1px #000, 1px 0 #000,
+                 1px 1px #000, 0 1px #000, -1px 1px #000,
+                 -1px 0 #000, -1px -1px #000;
+}
+
+/* the streak will go in the middle of the screen */
+#streak {
+    top: 33vmin;
+    right: 50vw;
+    transform: translate(50%,0);
+    font-size: 12vmin;
+    text-align: center;
+}
+
+/* if the streak is not empty, add the word "Streak" before */
+#streak:not(:empty)::before {
+    content: "Streak: ";
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
 }
