@@ -64,6 +64,11 @@
     content: "Streak: ";
 }
 
+#drumset.drum-0 #drum-0 { background: #00f8; }
+#drumset.drum-1 #drum-1 { background: #0f08; }
+#drumset.drum-2 #drum-2 { background: #f008; }
+#drumset.drum-3 #drum-3 { background: #ff08; }
+
 #video {
     position: absolute;
     top: 0;

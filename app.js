@@ -8,7 +8,7 @@ window.addEventListener("gamepadconnected", function(e) {
 });
 
 // listener to be called when a gamepad is disconnected
-window.addEventListener("gamepaddisconnected", fenction(e) {
+window.addEventListener("gamepaddisconnected", function(e) {
     console.info("Gamepad disconnected!");
     delete gamepads[e.gamepad.index];
 })
@@ -25,11 +25,11 @@ function readGamepadValues(){
 }
 
 function readGamepadValues() {
-    const indexs = Object.keys(gamepads);
+    const indexes = Object.keys(gamepads);
     // read the gamepads connected to the browser
     const connectedGamepads = navigator.getGamepads();
 
-    // traverse the list of gamepads reading the ones connected to this browser
+    // traverse the list of gamepads reading the ones connected to this browser 
     for (let x = 0; x < indexes.length; x++) {
         // read the gamepad buttons
         const buttons = connectedGamepads [indexes[x]].buttons;
@@ -95,6 +95,64 @@ function readGamepadValues() {
         }
         }
     }
+
+// variable to hold which button is active (to be pressed next)
+let activeButton = 0;
+
+//function that generates a new random button
+function generateNewRandomActive() {
+    // generate a new number between 0 and 3 (both included)
+    activeButton = Math.floor(Math.random() * 4);
+}
+
+function buttonPressed(id) {
+    // if the pressed button is the same as the active one
+    if (activeButton === id) {
+        // generate a new random button to press
+        generateNewRandomActive();
+    }
+}
+
+// ...
+
+window.addEventListener("gamepadconnected", function(e) {
+    console.info("Gamepad connected");
+    gamepads[e.gamepad.index] = true;
+    generateNewRandomActive();
+    readGamepadValues();
+});
+
+// variable for the points and streak
+let points = 0;
+let streak = 0;
+
+// ...
+
+function buttonPressed(id){
+    if (activeButton === id) {
+        //add points
+        streak++;
+        points++;
+        generateNewRandomActive();
+    } else {
+        streak = 0;
+    }
+}
+
+function generateNewRandomActive() {
+    activeButton = Math.floor(Math.random() * 4);
+    // show the points and streak on the screen
+    document.querySelector("#points").textContent = points;
+    document.querySelector("#streak").textContent = streak;
+}
+
+function generateNewRandomActive() {
+    activeButton = Math.floor(Math.random() * 4);
+    document.querySelector("#points").textContent = points;
+    document.querySelector("#streak").textContent = streak;
+    // add the activeButton class to the drumset
+    document.querySelector("#drumset").className = `drum-${activeButton}`;
+}
 
 
 // =============
