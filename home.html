@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <svg viewBox="0 0 760 200">
+            <symbol id="s-text">
+              <text text-anchor="middle" x="50%" y="80%">RiE! </text>
+              <text text-anchor="middle" x="52%" y="80%">RiE! </text>
+              
+            </symbol>
+          
+            <g class = "g-ants">
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+          </svg>
+        <div id=" start-screen" class="screen" style="display:block">
+            <button onclick="startGame()">Start Game</button>
+        </div>
+        <canvas id="canvas" style= "display-none" > </canvas>
+    </body>
+    
+
+</html>
