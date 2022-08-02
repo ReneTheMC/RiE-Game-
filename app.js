@@ -1,3 +1,5 @@
+//Extra code
+
 //variable to hold the gamepads unique identifies
 const gamepads = {};
 
@@ -186,3 +188,18 @@ function generateNewRandomActive() {
 
 
 // ============= 
+
+<div>
+    <div id="points"></div>
+    <div id="streak"></div>
+    <div id="drumset"></div>
+       <!-- this is a TEST drumset. It is sorted 2-3-0-1,it may be different -->
+        <div class="drum" id="drum-2"></div>
+        <div class="drum" id="drum-3"></div>
+        <div class="drum" id="drum-0"></div>
+        <div class="drum" id="drum-1"></div>
+    </div>
+    <div id="video">
+      <iframe width="100%" height="100%" scr="https://youtu.be/aKzajb_eDU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  <script src="js/app.js"></script>

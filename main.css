@@ -56,3 +56,12 @@ svg {
 @keyframes stroke-offset{
   100% {stroke-dashoffset: -35%;}
 }
+
+.screen {
+    margin: auto;
+    text-align: center;
+    width: auto;
+    
+}
+
+
