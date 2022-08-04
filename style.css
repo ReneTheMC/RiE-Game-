@@ -1,78 +1,312 @@
-/* set the drumset at the bottom of the page----TESTING*/
-#drumset {
-    position: absolute;
-    bottom: 50;
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
-
-/*make gray drums rounded with a darker border */
-.drum {
-    width: 20vmin;
-    height: 20vmin;
-    background: #ccc;
-    box-sizing: border-box;
-    border: 1vmin solid #333;
-    border-radius: 50%;
-    position: relative;
-    display: inline-block;
-    margin-bottom: 5vmin;
-}
-
-#drum-0 {
-    box-shadow: inset 0 0 0 2vmin blue;
-    top: -5vmin;
-}
-
-#drum-1 {
-    box-shadow: inset 0 0 0 2vmin green;
-}
-
-#drum-2 {
-    box-shadow: inset 0 0 0 2vmin red;
-}
-
-#drum-3 {
-    box-shadow: inset 0 0 0 2vmin yellow;
-    top: -5vmin;
-}
-
-/* position the text and add a border to highlight it */
-#points, #streak {
-    position: absolute;
-    top: 5vmin;
-    right: 5vmin;
-    font-size: 18vmin;
-    color: #fff;
-    text-shadow: 0 -1px #000, 1px -1px #000, 1px 0 #000,
-                 1px 1px #000, 0 1px #000, -1px 1px #000,
-                 -1px 0 #000, -1px -1px #000;
-}
-
-/* the streak will go in the middle of the screen */
-#streak {
-    top: 33vmin;
-    right: 50vw;
-    transform: translate(50%,0);
-    font-size: 12vmin;
-    text-align: center;
-}
-
-/* if the streak is not empty, add the word "Streak" before */
-#streak:not(:empty)::before {
-    content: "Streak: ";
-}
-
-#drumset.drum-0 #drum-0 { background: #00f8; }
-#drumset.drum-1 #drum-1 { background: #0f08; }
-#drumset.drum-2 #drum-2 { background: #f008; }
-#drumset.drum-3 #drum-3 { background: #ff08; }
-
-#video {
-    position: absolute;
-    top: 0;
-    left: 0;
+main {
+    height: 100vh;
     width: 100vw;
-    height: 100vw;
+    display: flex;
+}
+
+h2 {
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.game {
+    position: relative; 
+    display: flex;
+    flex: 0 0 calc(100% / 2);
+    flex-direction: column;
+    max-width: 35rem;
+    background: black;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hit {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.hit-combo {
+    width: 100%;
+    height: 50%;
+    font-size: 10rem;
+    color: rgba(254, 169, 57, 0.8);
+}
+
+.hit-accuracy {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    font-size: 4rem;
+}
+
+.hit-accuracy-perfect {
+    color: var(perfect-color);
+    opacity: 0;
+    animation: fade 1s;
+}
+
+.hit-accuracy-good {
+    color: var(good-color);
+    opacity: 0;
+    animation: fade 1s;
+}
+
+.hit-accuracy-bad {
+    color: var(bad-color);
+    opacity: 0;
+    animation: fade 1s;
+}
+
+.hit-accuracy-miss {
+    color: var(miss-color);
+    opacity: 0;
+    animation: 1s;
+}
+
+.track-container {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.track {
+    position: relative;
+    flex: 0 0 calc(100% / 7);
+}
+
+.track:not(:last-child) {
+    border-right: 1px solid grey;
+}
+
+.key-container {
+    display: flex;
+    flex: 0 0 15%;
+}
+
+.key {
+    flex: 0 0 calc(100% / 7);
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    text-align: center;
+    position:relative;
+    font-size: 2rem;
+}
+
+.key-red {
+    background: var(--key-red);
+}
+
+.key-blue {
+    background: var(--key-blue);
+}
+
+.key-orange {
+    background: var(--key-orange);
+}
+
+.key-green {
+    background: var(--key-green);
+}
+
+.key-yellow {
+    background: var(--key-yellow);
+}
+
+.key-purple {
+    background: var(--key-purple);
+}
+
+.key span {
+    font-weight: bold;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    padding-top: .5rem;
+}
+
+.note {
+    position: absolute;
+    width: 100%;
+    height: 1.5rem;
+    top: -1.5rem;
+}
+
+.keypress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    display: none;
+}
+
+.key-hit {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 0 0;
+    background: var(--hit-color);
+    opacity: 0;
+    border-radius: 50%;
+    animation: scaleFade 1s;
+}
+
+.key-hit:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid var(--hit-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: scaleBorder 1s;
+}
+
+.keypress-red {
+    background-image: var(--keypress-red);
+}
+
+.keypress-blue {
+    background-image: var(--keypress-blue);
+}
+
+.keypress-orange {
+    background-image: var(--keypress-orange);
+}
+
+.keypress-green {
+    background-image: var(--keypress-green);
+}
+
+.keypress-yellow {
+    background-image: var(--keypress-yellow);
+}
+
+.keypress-purple {
+    background-image: var(--keypress-purple);
+}
+
+.results {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    color: white;
+    text-align: center;
+    z-index: -100;
+}
+
+.results-timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 6rem;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.results-score {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    opacity: 0;
+    transition: all 2s;
+}
+
+.score-heading {
+    font-size: 5rem;
+    padding: 2rem;
+}
+
+.result-accuracy {
+    display: flex;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.accuracy-heading {
+    flex: 0 0 45%;
+    text-align: left;
+}
+
+.accuracy-count {
+    flex: 0 0 45%;
+    text-align: right;
+}
+
+.perfect {
+    color: var(--perfect-color);
+}
+
+.good {
+    color: var(--perfect-color);
+}
+
+.bad {
+    color: var(--bad-color);
+}
+
+.miss {
+    color: var(--miss-color);
+}
+
+.combo {
+    color: var(--maxcombo-color);
+}
+
+.score {
+    color: var(--score-color);
+}
+
+@keyframes moveDown {
+    0% { top: -1.5rem; }
+    98% { top: 100%; opacity: 1; }
+    100% { top: 105%; opacity: 0; }
+}
+
+@keyframes moveDownFade {
+    0% { top: -1.5rem; }
+    60% { opacity: 1; }
+    80% { opacity: 0; }
+    98% { top: 100%; opacity: 0; }
+    100% { top: 105%; opacity: 0; }
+}
+
+@keyframes fade {
+    10% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes scaleFade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@keyframes scaleBorder {
+    100% {
+        width: 10rem;
+        height: 10rem;
+        border: 2px solid transparent;
+    }
 }

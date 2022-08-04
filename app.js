@@ -188,7 +188,7 @@ function generateNewRandomActive() {
 
 
 // ============= 
-
+//HTML
 <div>
     <div id="points"></div>
     <div id="streak"></div>
@@ -203,3 +203,86 @@ function generateNewRandomActive() {
       <iframe width="100%" height="100%" scr="https://youtu.be/aKzajb_eDU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   <script src="js/app.js"></script>
+
+
+
+
+  //CSS
+  /* set the drumset at the bottom of the page----TESTING*/
+#drumset {
+    position: absolute;
+    bottom: 50;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*make gray drums rounded with a darker border */
+.drum {
+    width: 20vmin;
+    height: 20vmin;
+    background: #ccc;
+    box-sizing: border-box;
+    border: 1vmin solid #333;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5vmin;
+}
+
+#drum-0 {
+    box-shadow: inset 0 0 0 2vmin blue;
+    top: -5vmin;
+}
+
+#drum-1 {
+    box-shadow: inset 0 0 0 2vmin green;
+}
+
+#drum-2 {
+    box-shadow: inset 0 0 0 2vmin red;
+}
+
+#drum-3 {
+    box-shadow: inset 0 0 0 2vmin yellow;
+    top: -5vmin;
+}
+
+/* position the text and add a border to highlight it */
+#points, #streak {
+    position: absolute;
+    top: 5vmin;
+    right: 5vmin;
+    font-size: 18vmin;
+    color: #fff;
+    text-shadow: 0 -1px #000, 1px -1px #000, 1px 0 #000,
+                 1px 1px #000, 0 1px #000, -1px 1px #000,
+                 -1px 0 #000, -1px -1px #000;
+}
+
+/* the streak will go in the middle of the screen */
+#streak {
+    top: 33vmin;
+    right: 50vw;
+    transform: translate(50%,0);
+    font-size: 12vmin;
+    text-align: center;
+}
+
+/* if the streak is not empty, add the word "Streak" before */
+#streak:not(:empty)::before {
+    content: "Streak: ";
+}
+
+#drumset.drum-0 #drum-0 { background: #00f8; }
+#drumset.drum-1 #drum-1 { background: #0f08; }
+#drumset.drum-2 #drum-2 { background: #f008; }
+#drumset.drum-3 #drum-3 { background: #ff08; }
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+}
