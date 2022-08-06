@@ -28,35 +28,35 @@ let isHolding = {
    let keypress;
    let comboText;
    
-   let initializeNotes = function () {
+   let initializeNotes = function() {
     let noteElement;
     let trackElement;
-   
+
     while (trackContainer.hasChildNodes()) {
-    trackContainer.removeChild(trackContainer.lastChild);
+        trackContainer.removeChild(trackContainer.lastChild);
     }
-   
+
     song.sheet.forEach(function (key, index) {
-    trackElement = document.createElement('div');
-    trackElement.classList.add('track');
-   
-    key.notes.forEach(function (note) {
-    noteElement = document.createElement('div');
-    noteElement.classList.add('note');
-    noteElement.classList.add('note--' + index);
-    noteElement.style.backgroundColor = key.color;
-    noteElement.style.animationName = animation;
-    noteElement.style.animationTimingFunction = 'linear';
-    noteElement.style.animationDuration = note.duration - speed + 's';
-    noteElement.style.animationDelay = note.delay + speed + 's';
-    noteElement.style.animationPlayState = 'paused';
-    trackElement.appendChild(noteElement);
+        trackElement = document.createElement('div');
+        trackElement.classList.add('track');
+
+        key.notes.forEach(function (note) {
+            noteElement = document.createElement('div');
+            noteElement.classList.add('note');
+            noteElement.classList.add('note--' + index);
+            noteElement.style.backgroundColor = key.color;
+            noteElement.style.animationName = animation;
+            noteElement.style.animationTimingFunction = 'linear';
+            noteElement.style.animationDuration = note.duration - speed + 's';
+            noteElement.style.animationDelay = note.delay + speed + 's';
+            noteElement.style.animationPlayState = 'paused';
+            trackElement.appendChild(noteElement);
+        });
+
+        trackContainer.appendChild(trackElement);
+        tracks = document.querySelectorAll('.track');
     });
-   
-    trackContainer.appendChild(trackElement);
-    tracks = document.querySelectorAll('.track');
-    });
-   };
+}
    
    let setupSpeed = function () {
     let buttons = document.querySelectorAll('.btn-small');
@@ -105,20 +105,20 @@ let isHolding = {
     initializeNotes();
    };
    
-   let setupStartButton = function () {
+   let setupStartButton = function() {
     let startButton = document.querySelector('.btn-start');
-    startButton.addEventListener('click', function () {
+    startButton.addEventListener('click', function() { 
     isPlaying = true;
     startTime = Date.now();
    
     startTimer(song.duration);
     document.querySelector('.menu').style.opacity = 0;
-    document.querySelector('.song').play();
+    document.querySelector('.audio').play();
     document.querySelectorAll('.note').forEach(function (note) {
     note.style.animationPlayState = 'running';
     });
     });
-   };
+};
    
    let startTimer = function (duration) {
     let display = document.querySelector('.results-timer');
@@ -130,8 +130,8 @@ let isHolding = {
     display.style.opacity = 1;
    
     let songDurationInterval = setInterval(function () {
-    minutes = Math.floor(timer / 60);
-    seconds = timer % 60;
+    minutes = Math.floor(timer / 95);
+    seconds = timer % 95;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     seconds = seconds < 10 ? '0' + seconds : seconds;
     display.innerHTML = minutes + ':' + seconds;
@@ -158,7 +158,7 @@ let isHolding = {
    
    let setupNoteMiss = function () {
     trackContainer.addEventListener('animationend', function (event) {
-    let index = event.target.classList.item(1)[6];
+    let index = event.target.classList.item(1)[5];
    
     displayAccuracy('miss');
     updateHits('miss');
@@ -308,7 +308,7 @@ let isHolding = {
     keypress = document.querySelectorAll('.keypress');
     comboText = document.querySelector('.hit-combo');
 
-    initializeNotes();
+    //initializeNotes();
     setupSpeed();
     setupChallenge();
     setupStartButton();

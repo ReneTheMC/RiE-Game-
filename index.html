@@ -9,16 +9,13 @@
     type="image/png"
     href="https://img.icons8.com/doodle/96/000000/saxophone--v1.png" />
   
-    <link
-      href="https://fonts.google.com/specimen/Indie+Flower#standard-styles"
-      rel="stylesheet"
-  />
   <link rel="stylesheet" href="style.css" />
   <title>Rie Game</title>
 </head>
 
 <body>
-  <audio></audio>
+
+  <audio scr="audio/Love_Song-1.mp3"></audio>
 
   <main>
     <div class="game">
@@ -28,6 +25,8 @@
     </div>
 
     <div class="track-container"></div>
+      <div class="note"></div>
+      <div class="track"></div>
 
     <div class="key-container">
        <div class="key key-a key-blue">
@@ -43,7 +42,7 @@
          <span>C</span>
       </div>
       <div class="key key-n key-purple">
-        <div clas="keypress keypress-purple"></div>
+        <div class="keypress keypress-purple"></div>
          <span>N</span>
       </div>
       <div class="key key-k key-yellow">
@@ -102,7 +101,7 @@
     <div class="results">
       <div class="results-timer"></div>
       <div class="results-score"
-       <h2 class="score-heading">DOPE!</h2>
+       <h1 class="score-heading">DOPE!</h1>
         <div class="result-accuracy perfect">
           <p class="accuracy-heading">PERFECT</p>
           <span>:</span>
@@ -137,5 +136,7 @@
     </div>
  </main>
  <script src="game.js"></script> 
- </body>
+ <script src="lovesong.js"></script>
+</body>
 </html>
+
