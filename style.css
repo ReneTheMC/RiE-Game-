@@ -1,3 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, .8));
+    --perfect-color: rgba(255, 101, 229, .8);
+    --good-color: rgba(82, 236, 51, .8);
+    --bad-color: rgba(207, 53, 53, .8);
+    --miss-color: rgba(199, 184, 184, .8);
+    --maxcombo-color: rgba(0, 110, 255, .8);
+    --score-color: rgba(240, 202, 36, .8);
+    /* --hit-effect: linear-gradient(to bottom, rgba(255, 255, 255, .5), rgba(255, 255, 255, .3)); */
+    --hit-color: rgba(255, 255, 255, .8);
+    --key-red: rgba(254, 45, 87, 1);
+    --key-blue: rgba(28, 121, 228, 1);
+    --key-orange: rgba(240, 128, 60, 1);
+    --key-yellow: rgba(250, 205, 4, 0.968);
+    --key-green: rgba(48, 241, 9, 0.652);
+    --key-purple: rgba(198, 13, 227, 0.8);
+    --keypress-red: linear-gradient(to top, rgba(254, 45, 87, .6), rgba(254, 45, 87, 0));
+    --keypress-blue: linear-gradient(to top, rgba(28, 121, 228, .6), rgba(28, 121, 228, 0));
+    --keypress-orange: linear-gradient(to top, rgba(241, 108, 6, 0.826), rgba(240, 128, 60, 0));
+    --keypress-yellow: linear-gradient(to top, rgba(232, 232, 13, 0.955), rgba(254, 250, 45, 0));
+    --keypress-green: linear-gradient(to top, rgba(70, 211, 15, 0.675), rgba(45, 254, 62, 0));
+    --keypress-purple: linear-gradient(to top, rgba(230, 45, 254, 0.6), rgba(254, 45, 254, 0));
+  }
+
+html {
+    font-size: 70%
+}
+
+body {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: var(--background);
+    overflow: hidden;
+}
+
 main {
     height: 100vh;
     width: 100vw;
@@ -191,6 +231,70 @@ h2 {
 
 .keypress-purple {
     background-image: var(--keypress-purple);
+}
+
+.menu {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(100% / 2);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    justify-content: space-around;
+    transition: all 1s;
+}
+
+.menu-config {
+    display: flex;
+    justify-content: space-around;
+}
+
+.author {
+    text-decoration: underline;
+    color: white;
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    border: 1px solid white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .2s;
+    color: white;
+    margin: 0 auto;
+    transition: all .2s;
+}
+
+.btn:hover,
+.btn:active {
+    background: white;
+    color: black;
+}
+
+.btn-small {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    line-height: 7rem;
+    vertical-align: center;
+}
+
+.btn-primary {
+    border-radius: 1rem;
+    padding: 2rem 4rem;
+}
+
+.config-speed .btn-selected {
+    background: white;
+    color: black;
+}
+
+.config-challenge .btn-selected {
+    background: white;
+    color: black;
 }
 
 .results {

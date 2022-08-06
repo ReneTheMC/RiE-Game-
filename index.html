@@ -1,50 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://img.icons8.com/doodle/96/000000/saxophone--v1.png" />
+  
+    <link
+      href="https://fonts.google.com/specimen/Indie+Flower#standard-styles"
+      rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
+  <title>Rie Game</title>
 </head>
+
 <body>
   <audio></audio>
+
   <main>
     <div class="game">
-    <div class="hit">
-      <div class="hit-combo"></div>
-      <div class="hit-accuracy"></div>
+      <div class="hit">
+        <div class="hit-combo"></div>
+        <div class="hit-accuracy"></div>
     </div>
 
-  <div class="music-container"></div>
+    <div class="track-container"></div>
 
-  <div class="key-container">
-      <div class="key key-a key-blue">
+    <div class="key-container">
+       <div class="key key-a key-blue">
         <div class="keypress keypress-blue"></div>
-        <span>A</span>
+         <span>A</span>
       </div>
-      <div class="key key-s key-red">
+       <div class="key key-s key-red">
         <div class="keypress keypress-red"></div>
-        <span>S</span>
+         <span>S</span>
       </div>
       <div class="key key-c key-green">
         <div class="keypress keypress-green"></div>
-        <span>C</span>
+         <span>C</span>
       </div>
-      <div class="key key-n key-yellow">
+      <div class="key key-n key-purple">
+        <div clas="keypress keypress-purple"></div>
+         <span>N</span>
+      </div>
+      <div class="key key-k key-yellow">
         <div class="keypress keypress-yellow"></div>
-        <span>N</span>
-      </div>
-      <div class="key key-k key-orange">
-        <div class="keypress keypress-orange"></div>
         <span>K</span>
-        <div class="key key-l key-pruple">
-          <div class="keypress keypress-purple"></div>
-          <span>L</span>
+      </div>
+      <div class="key key-l key-orange">
+        <div class="keypress keypress-orange"></div>
+         <span>L</span>
         </div>
       </div>
     </div>
+
+    <div class="menu">
+      <div>
+        <h1>RIE</h1>
+        <p>
+          Made by <span>Rene Collins</span>
+        </p>
+        <a
+          class="author"
+          target="__blank"
+          href=""></a>
+      </div>
+
+      <div class="menu-song">
+        <h2></h2>
+        <div>
+          <p></p>
+          <p>
+           <a></a>
+           </p>
+        </div>
+      </div>
+
+    <div class="menu-config">
+      <div class="config-speed">
+        <h2>Speed</h2>
+        <div>
+          <a class="btn btn-small btn selected" href="#">1x</a>
+          <a class="btn btn-small" href="#">2x</a>
+          <a class="btn btn-small" href="#">3x</a>
+        </div>
+      </div>
+      <div class="config-challenge">
+        <h2>Challenger</h2>
+        <div><a class="btn btn-small" href="#">Fade</a></div>
+      </div>
+    </div>
+
+    <div class="menu-start">
+      <a class="btn btn-primary btn-start" href="#">Start</a>
+    </div>
+  </div>  
     
     <div class="results">
       <div class="results-timer"></div>
       <div class="results-score"
-        <h2 class="score-heading">DOPE!</h2>
+       <h2 class="score-heading">DOPE!</h2>
         <div class="result-accuracy perfect">
           <p class="accuracy-heading">PERFECT</p>
           <span>:</span>

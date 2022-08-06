@@ -2,7 +2,6 @@ let isHolding = {
     a: false,
     s: false,
     c: false,
-    ' ': false,
     n: false,
     k: false,
     l: false
@@ -60,24 +59,24 @@ let isHolding = {
    };
    
    let setupSpeed = function () {
-    let buttons = document.querySelectorAll('.btn--small');
+    let buttons = document.querySelectorAll('.btn-small');
    
     buttons.forEach(function (button) {
     button.addEventListener('click', function () {
     if (this.innerHTML === '1x') {
-    buttons[0].className = 'btn btn--small btn--selected';
-    buttons[1].className = 'btn btn--small';
-    buttons[2].className = 'btn btn--small';
+    buttons[0].className = 'btn btn-small btn-selected';
+    buttons[1].className = 'btn btn-small';
+    buttons[2].className = 'btn btn-small';
     speed = parseInt(this.innerHTML) - 1;
     } else if (this.innerHTML === '2x') {
-    buttons[0].className = 'btn btn--small';
-    buttons[1].className = 'btn btn--small btn--selected';
-    buttons[2].className = 'btn btn--small';
+    buttons[0].className = 'btn btn-small';
+    buttons[1].className = 'btn btn-small btn-selected';
+    buttons[2].className = 'btn btn-small';
     speed = parseInt(this.innerHTML) - 1;
     } else if (this.innerHTML === '3x') {
-    buttons[0].className = 'btn btn--small';
-    buttons[1].className = 'btn btn--small';
-    buttons[2].className = 'btn btn--small btn--selected';
+    buttons[0].className = 'btn btn-small';
+    buttons[1].className = 'btn btn-small';
+    buttons[2].className = 'btn btn-small btn-selected';
     speed = parseInt(this.innerHTML) - 1;
     }
    
@@ -88,13 +87,13 @@ let isHolding = {
    
    let setupChallenge = function () {
     let enabled = false;
-    let challenge = document.querySelector('.config__challenge');
+    let challenge = document.querySelector('.config-challenge');
     challenge.addEventListener('click', function (event) {
     if (enabled) {
-    event.target.className = 'btn btn--small';
+    event.target.className = 'btn btn-small';
     enabled = false;
     } else {
-    event.target.className = 'btn btn--small btn--selected';
+    event.target.className = 'btn btn-small btn-selected';
     enabled = true;
     updateAnimation();
     }
@@ -107,7 +106,7 @@ let isHolding = {
    };
    
    let setupStartButton = function () {
-    let startButton = document.querySelector('.btn--start');
+    let startButton = document.querySelector('.btn-start');
     startButton.addEventListener('click', function () {
     isPlaying = true;
     startTime = Date.now();
@@ -122,7 +121,7 @@ let isHolding = {
    };
    
    let startTimer = function (duration) {
-    let display = document.querySelector('.summary__timer');
+    let display = document.querySelector('.results-timer');
     let timer = duration;
     let minutes;
     let seconds;
@@ -153,8 +152,8 @@ let isHolding = {
     document.querySelector('.miss-count').innerHTML = hits.miss;
     document.querySelector('.combo-count').innerHTML = maxCombo;
     document.querySelector('.score-count').innerHTML = score;
-    document.querySelector('.summary-timer').style.opacity = 0;
-    document.querySelector('.summary-result').style.opacity = 1;
+    document.querySelector('.results-timer').style.opacity = 0;
+    document.querySelector('.results-score').style.opacity = 1;
    };
    
    let setupNoteMiss = function () {
@@ -199,21 +198,19 @@ let isHolding = {
    };
    
    let getKeyIndex = function (key) {
-    if (key === 's') {
+    if (key === 'a') {
     return 0;
-    } else if (key === 'd') {
+    } else if (key === 's') {
     return 1;
-    } else if (key === 'f') {
+    } else if (key === 'c') {
     return 2;
-    } else if (key === ' ') {
+    } else if (key === 'n') {
     return 3;
-    } else if (key === 'j') {
-    return 4;
     } else if (key === 'k') {
-    return 5;
+    return 4;
     } else if (key === 'l') {
-    return 6;
-    }
+    return 5;
+    } 
    };
    
    let judge = function (index) {
@@ -257,9 +254,9 @@ let isHolding = {
    
    let displayAccuracy = function (accuracy) {
     let accuracyText = document.createElement('div');
-    document.querySelector('.hit__accuracy').remove();
-    accuracyText.classList.add('hit__accuracy');
-    accuracyText.classList.add('hit__accuracy--' + accuracy);
+    document.querySelector('result-accuracy').remove();
+    accuracyText.classList.add('result-accuracy');
+    accuracyText.classList.add('result-accuracy--' + accuracy);
     accuracyText.innerHTML = accuracy;
     document.querySelector('.hit').appendChild(accuracyText);
    };
@@ -267,7 +264,7 @@ let isHolding = {
    let showHitEffect = function (index) {
     let key = document.querySelectorAll('.key')[index];
     let hitEffect = document.createElement('div');
-    hitEffect.classList.add('key__hit');
+    hitEffect.classList.add('key-hit');
     key.appendChild(hitEffect);
    };
    
